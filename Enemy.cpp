@@ -1,4 +1,3 @@
-//#include "stdafx.h"
 #include <cstdlib>
 
 #include "Enemy.h"
@@ -28,10 +27,10 @@ Enemy::Enemy()
 		break;
 	}
 
-	bodyTextSprite.Add(" ____ "); // mo¿esz sobie bez przeszkód zmieniæ ten obrazek a box dopasuje swoje wymiary i kolizje bêd¹ dzia³aæ
+	bodyTextSprite.Add(" ____ ");
 	bodyTextSprite.Add("O __ O");
 	bodyTextSprite.Add("|[__]|");
-	bodyTextSprite.Add("|\\__/|"); // tu s¹ dwa backslashe \\ bo pojedynczy s³uzy do robienia znaków specjalnych np '\0' - koniec textu, '\n' - enter, '\t' - tabulator
+	bodyTextSprite.Add("|\\__/|");
 	bodyTextSprite.Add("O,~~,O");
 
 	bodyTextSprite.SetPosition(rand() % 34, 0);
@@ -83,7 +82,7 @@ void Enemy::IsColliding(Track _track)
 	}
 	if (body.GetTop() >= _track.GetLeftBorder().GetBottom())
 	{
-		alive = false; // Jak bêdzie poni¿ej toru to niech umiera. Btw wspó³rzêdna Y na konsoli zawsze roœnie w dó³ st¹d operator >= a nie <=
+		alive = false; //Now object is destined to remove with delete 
 	}
 }
 
@@ -97,7 +96,7 @@ void Enemy::IsColliding(Player _player)
 
 void Enemy::IsColliding(Enemy _enemy)
 {
-	if (body.CheckIfCollides(_enemy.GetBody())) //Jak koliduje z innym autem to zmienia kierunek
+	if (body.CheckIfCollides(_enemy.GetBody()))
 	{
 		switch (direction)
 		{
@@ -115,7 +114,7 @@ void Enemy::IsColliding(Enemy _enemy)
 
 void Enemy::IsColliding(Coin _coin)
 {
-	//mo¿na zrobiæ ¿eby wróg przyspieszy³ jak dotknie coina ale po chuj xd
+	//pass
 }
 
 void Enemy::Draw(TextWindow _textWindow)
@@ -143,4 +142,3 @@ Movable::type Enemy::GetType()
 {
 	return ENEMY;
 }
-

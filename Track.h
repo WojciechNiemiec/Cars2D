@@ -13,7 +13,7 @@ private:
 		one,
 		two,
 		three
-	}spriteSelector; //
+	}spriteSelector;
 
 	Box leftBorder;
 	Box rightBorder;

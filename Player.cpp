@@ -1,10 +1,9 @@
-//#include "stdafx.h"
 #include "Player.h"
 #include "Coin.h"
 #include "Enemy.h"
 #include "Track.h"
 
-std::string IntToStr(int val) //To nie jest metoda klasy tylko zwyk³a funkcja. NIEOBIEKTOWY fragment kodu.
+std::string IntToStr(int val) 
 {
 	std::string retval = "";
 	char character = ' ';
@@ -50,8 +49,8 @@ void Player::Move()
 	int x = body.GetLeft();
 	int y = body.GetTop();
 
-	if (GetAsyncKeyState(VK_LEFT) && !leftLocked)	//GetAsyncKeyState zwraca wartoœæ niezerow¹ jeœli przycisk jest wciœniêty
-	{												//Ka¿da niezerowa wartoœæ jest traktowana jak logiczne true
+	if (GetAsyncKeyState(VK_LEFT) && !leftLocked)
+	{	
 		x -= speed;
 	}
 	if (GetAsyncKeyState(VK_RIGHT) && !rightLocked)
@@ -74,10 +73,10 @@ void Player::Move()
 
 void Player::IsColliding(Track _track)
 {
-	leftLocked = (body.CheckIfCollides(_track.GetLeftBorder())); //inaczej if ((body.CheckIfCollides(_track.GetLeftBorder()) == true)) leftLocked = true; else LeftLocked = false;
-	rightLocked = (body.CheckIfCollides(_track.GetRightBorder())); //jeœli kolidujê z praw¹ œciank¹ to wyra¿enie w nawiasie jest true a jeœli nie to false
-	upLocked = (body.GetTop() <= _track.GetLeftBorder().GetTop()); //tu tak samo
-	downLocked = (body.GetBottom() >= _track.GetLeftBorder().GetBottom()); //rightBorder ma tak¹ sam¹ wysokoœæ i szerokoœæ co leftBorder
+	leftLocked = (body.CheckIfCollides(_track.GetLeftBorder())); 
+	rightLocked = (body.CheckIfCollides(_track.GetRightBorder())); 
+	upLocked = (body.GetTop() <= _track.GetLeftBorder().GetTop()); 
+	downLocked = (body.GetBottom() >= _track.GetLeftBorder().GetBottom()); 
 }
 
 void Player::IsColliding(Player _player)
@@ -87,9 +86,9 @@ void Player::IsColliding(Player _player)
 
 void Player::IsColliding(Enemy _enemy)
 {
-	if (body.CheckIfCollides(_enemy.GetBody()) == true) //Napisa³em klasê Box a dla niej metodê wykrywaj¹c¹ kolizje
-	{													//Gdy chcê sprawdziæ kolizje miêdzy jakimiœ elementami to
-		health -= 10;									//tak naprawdê sprawdzam kolizjê miêdzy ich Boxami
+	if (body.CheckIfCollides(_enemy.GetBody()) == true)
+	{											
+		health -= 10;		
 	}
 }
 
@@ -135,7 +134,7 @@ Box & Player::GetBody()
 
 bool Player::IsExisting()
 {
-	return (health > 0); //Taka sztuczka. Zwracana jest wartoœæ wyra¿enia w nawiasie. Jak zdrowie wiêksze od zera to true jak nie to false;
+	return (health > 0); 
 }
 
 Movable::type Player::GetType()

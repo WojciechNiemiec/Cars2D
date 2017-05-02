@@ -82,7 +82,7 @@ void Enemy::IsColliding(Track _track)
 	}
 	if (body.GetTop() >= _track.GetLeftBorder().GetBottom())
 	{
-		alive = false; //Now object is destined to remove with delete 
+		alive = false; 
 	}
 }
 

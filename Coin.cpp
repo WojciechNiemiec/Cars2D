@@ -1,4 +1,3 @@
-//#include "stdafx.h"
 #include "Coin.h"
 #include "Player.h"
 #include "Enemy.h"
@@ -12,8 +11,8 @@ Coin::Coin()
 
 	body.SetLeft(bodyTextSprite.GetPosition().X);
 	body.SetTop(0);
-	body.SetWidth(bodyTextSprite.GetWidth()); //2 bo 2 znaki
-	body.SetHeight(bodyTextSprite.GetHeight()); //1 bo 1 wiersz
+	body.SetWidth(bodyTextSprite.GetWidth()); 
+	body.SetHeight(bodyTextSprite.GetHeight()); 
 }
 
 Coin::~Coin()
@@ -33,8 +32,8 @@ void Coin::IsColliding(Track _track)
 {
 	if (body.CheckIfCollides(_track.GetLeftBorder()) || body.CheckIfCollides(_track.GetLeftBorder())) //Jeœli jedno LUB drugie zwróci true
 	{
-		collides = true;	//Jeœli koliduje z lew¹ lub praw¹ œcian¹ toru to ustaw flagê collides na true.
-	}						//Flaga ta bêdzie sprawdzana do ustalenia czy usun¹æ obiekt czy nie
+		collides = true;
+	}						
 	if (body.GetTop() >= _track.GetLeftBorder().GetBottom())
 	{
 		collides = true;
@@ -59,7 +58,7 @@ void Coin::IsColliding(Enemy _enemy)
 
 void Coin::IsColliding(Coin _coin)
 {
-	//Przepuœæ - nic nie rób
+	//do nothing
 }
 
 void Coin::Draw(TextWindow _textWindow)

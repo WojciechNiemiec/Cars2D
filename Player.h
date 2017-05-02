@@ -17,7 +17,7 @@ private:
 	int health;
 	int points;
 
-	bool leftLocked; //Jak jest true to blokuje mo¿liwoœæ skrêtu w lewo. Nie mo¿na skrêciæ w lewo jak koliduje siê z lew¹ œcian¹ toru
+	bool leftLocked; 
 	bool rightLocked;
 	bool upLocked;
 	bool downLocked;

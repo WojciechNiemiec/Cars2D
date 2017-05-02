@@ -1,4 +1,3 @@
-//#include "stdafx.h"
 #include "TextSprite.h"
 
 TextSprite::TextSprite()
@@ -11,7 +10,7 @@ TextSprite::~TextSprite()
 
 void TextSprite::Add(std::string line)
 {
-	sprite.push_back(line); //dodajê linijkê tekstu do listy
+	sprite.push_back(line); 
 }
 
 void TextSprite::SetPosition(int XCord, int YCord)
@@ -32,11 +31,11 @@ std::list<std::string> & TextSprite::GetSprite()
 
 int TextSprite::GetWidth()
 {
-	return sprite.back().size(); //sprite.back() zwraca ostatni¹ linijkê (string) sprajta i dla tej linijki wywo³ujemy size
+	return sprite.back().size(); 
 }
 
 int TextSprite::GetHeight()
 {
-	return sprite.size(); //size zwraca d³ugoœæ listy sprite
+	return sprite.size(); 
 }
 

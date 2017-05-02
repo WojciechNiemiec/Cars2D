@@ -1,4 +1,3 @@
-//#include "stdafx.h"
 #include "Track.h"
 
 void Track::GenerateTextSprite()
